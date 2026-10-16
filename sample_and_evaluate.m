@@ -28,7 +28,7 @@ C3 = zeros(1, K);
 
 for t = 1:N
     Et = reshape(E(:,t,:), nu, K);
-    C3 = C3 + lambda * sum((U_nom(:,t) .* Sinv) .* Et, 1); %It penalizes perturbations that push further in the direction the nominal control already points [w]
+    C3 = C3 + lambda * sum((U_nom(:,t) .* Sinv) .* Et, 1); %CLAUDE ADDITION, no encontre ref. It penalizes perturbations that push further in the direction the nominal control already points [w]
     Vt = reshape(V(:,t,:), nu, K);       
     Xk = A*Xk + B*Vt; % dinamica [w][mw]
     e  = Cr*Xk - Yref(:,t+1); % error de seguimiento [mw]
